@@ -38,6 +38,8 @@ Lua::Lua(){
     lua_pop(state, 1);
     luaL_requiref(state, LUA_MATHLIBNAME, luaopen_math, 1);
     lua_pop(state, 1);
+    luaL_requiref(L, LUA_UTF8LIBNAME, luaopen_utf8, 1);
+    lua_pop(L, 1);
 	
 	lua_sethook(state, &LineHook, LUA_MASKLINE, 0);
 	lua_register(state, "print", luaPrint);
